@@ -1,0 +1,45 @@
+<<<<<<< HEAD
+streamlit
+=======
+# Core Dependencies
+SpeechRecognition==3.10.0
+pyttsx3==2.90
+PyAudio==0.2.13
+
+# NLP and Text Processing
+nltk==3.8.1
+fuzzywuzzy==0.18.0
+python-Levenshtein==0.21.1
+num2words==0.5.13
+word2number==1.1
+
+# Database
+sqlite3  # Built-in, no installation needed
+
+# Configuration
+PyYAML==6.0.1
+
+# Utilities
+colorama==0.4.6
+python-dateutil==2.8.2
+
+# Optional: Advanced STT
+# openai-whisper==20230314  # Uncomment for Whisper support
+# faster-whisper==0.9.0     # Uncomment for faster Whisper
+
+# GUI (Optional)
+# tkinter is built-in for most Python installations
+
+# Testing
+pytest==7.4.3
+pytest-cov==4.1.0
+pytest-mock==3.12.0
+
+# Development
+black==23.11.0
+flake8==6.1.0
+mypy==1.7.1
+
+# Logging
+colorlog==6.8.0
+>>>>>>> master

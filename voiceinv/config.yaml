@@ -1,0 +1,96 @@
+# Voice Inventory Manager Configuration
+
+# Speech-to-Text Settings
+stt:
+  provider: "google"  # Options: google, sphinx, whisper
+  language: "en-US"
+  timeout: 5  # seconds to wait for phrase
+  phrase_time_limit: 10  # max seconds for a single phrase
+  energy_threshold: 4000  # auto-adjusted on first run
+  dynamic_energy_threshold: true
+  pause_threshold: 0.8  # seconds of silence to consider phrase complete
+
+# Microphone Settings
+microphone:
+  device_index: null  # null for default, or specific index
+  sample_rate: 16000
+  chunk_size: 1024
+
+# NLP Parser Settings
+nlp:
+  fuzzy_threshold: 80  # 0-100, minimum similarity score
+  enable_fuzzy_matching: true
+  context_memory_size: 5  # remember last N commands
+  confidence_threshold: 0.6  # minimum confidence for intent
+  enable_spell_correction: true
+
+# Inventory Settings
+inventory:
+  min_stock_alert: 5  # alert when stock falls below this
+  enable_stock_alerts: true
+  default_unit: "pcs"  # default unit if not specified
+  require_confirmation_for_delete: true
+  enable_transaction_log: true
+
+# Database Settings
+database:
+  path: "data/inventory.db"
+  backup_enabled: true
+  backup_path: "data/backups/"
+  backup_frequency: "daily"  # daily, weekly, manual
+
+# Response Settings
+response:
+  mode: "both"  # text, voice, both
+  voice_enabled: true
+  voice_rate: 150  # words per minute
+  voice_volume: 0.9  # 0.0 to 1.0
+  voice_gender: "female"  # male, female (depends on TTS engine)
+
+# Logging Settings
+logging:
+  level: "INFO"  # DEBUG, INFO, WARNING, ERROR, CRITICAL
+  log_to_file: true
+  log_file_path: "logs/voice_inventory.log"
+  max_log_size_mb: 10
+  backup_count: 5
+  log_format: "detailed"  # simple, detailed, json
+  log_voice_commands: true
+  log_nlp_parsing: true
+  log_database_operations: true
+
+# Security Settings
+security:
+  enable_voice_profile: false
+  require_admin_password: false
+  admin_password_hash: null  # Set via admin command
+  confirm_destructive_operations: true
+  max_delete_items_without_confirm: 10
+
+# UI Settings
+ui:
+  default_mode: "cli"  # cli, gui
+  cli_color_enabled: true
+  gui_theme: "default"  # default, dark, light
+
+# Hotword Activation (Optional)
+hotword:
+  enabled: false
+  keyword: "inventory"  # wake word to activate listening
+  sensitivity: 0.5  # 0.0 to 1.0
+
+# Advanced Settings
+advanced:
+  enable_plugin_system: true
+  plugin_directory: "plugins/"
+  cache_enabled: true
+  cache_directory: "cache/"
+  offline_mode: false  # Use offline STT when true
+
+# Feature Flags
+features:
+  enable_barcode_scanner: false
+  enable_qr_scanner: false
+  enable_cloud_sync: false
+  enable_ml_forecasting: false
+  enable_multi_user: false
